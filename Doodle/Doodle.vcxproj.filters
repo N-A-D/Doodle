@@ -13,5 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\input">
+      <UniqueIdentifier>{141f5fb0-b13e-4b50-93e5-062d25f8164f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\system">
+      <UniqueIdentifier>{974a0109-7565-460e-8172-c4aa53904fba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\audio">
+      <UniqueIdentifier>{90198625-ee48-4bd2-9523-3f83d0ca9469}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\graphics">
+      <UniqueIdentifier>{1bc5e6af-06ef-4884-989e-8431e79fbde9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\display">
+      <UniqueIdentifier>{9f07570a-5b18-4a98-81bb-d3c1a75889f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal">
+      <UniqueIdentifier>{80092a68-c4ae-49f9-b470-8f1b094cadd8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="input.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboard.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>Header Files\display</Filter>
+    </ClInclude>
+    <ClInclude Include="clock.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="doodle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdl_resource.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="clock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
