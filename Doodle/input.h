@@ -47,6 +47,9 @@ namespace doodle {
 		// Checks if a keyboard key is being pressed.
 		bool is_key_pressed(Keyboard key) const noexcept;
 
+		// Returns the current position of the mouse.
+		SDL_Point get_mouse_position() const noexcept;
+
 	private:
 		friend class Window;
 		

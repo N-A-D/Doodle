@@ -67,3 +67,10 @@ bool doodle::InputHandler::is_key_pressed(Keyboard key) const noexcept
 	auto current_keyboard_state = SDL_GetKeyboardState(nullptr);
 	return current_keyboard_state[static_cast<std::size_t>(key)];
 }
+
+SDL_Point doodle::InputHandler::get_mouse_position() const noexcept
+{
+	SDL_Point pos;
+	SDL_GetMouseState(&pos.x, &pos.y);
+	return pos;
+}
