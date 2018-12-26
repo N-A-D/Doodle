@@ -72,6 +72,12 @@ std::uint32_t doodle::Window::delta_time() const noexcept
 	return frametimer.ticks();
 }
 
+void doodle::Renderer::draw(const Renderable & obj, SDL_Point dst, double angle, SDL_Rect clip, SDL_Point center, SDL_RendererFlip flip) noexcept
+{
+	SDL_Rect quad = { dst.x, dst.y, clip.w, clip.h };
+	SDL_RenderCopyEx(resource.get(), obj, &clip, &quad, angle, &center, flip);
+}
+
 void doodle::Renderer::set_viewport(const SDL_Rect & rect) noexcept
 {
 	SDL_RenderSetViewport(resource.get(), &rect);

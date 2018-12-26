@@ -4,6 +4,7 @@
 #include <string>
 #include <memory>
 #include "clock.h"
+#include "renderable.h"
 #include "sdl_resource.h"
 
 namespace doodle {
@@ -13,6 +14,10 @@ namespace doodle {
 	// The Renderer class
 	class Renderer final : public internal::SDLResource<SDL_Renderer> {
 	public:
+
+		// Draw a renderable object onto the renderer's parent window
+		void draw(const Renderable& obj, SDL_Point dst, double angle, 
+			      SDL_Rect clip, SDL_Point center, SDL_RendererFlip flip) noexcept;
 
 		// Set the renderer's rendering area.
 		void set_viewport(const SDL_Rect& rect) noexcept;
