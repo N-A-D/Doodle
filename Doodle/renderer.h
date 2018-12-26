@@ -1,49 +1,21 @@
 #pragma once
 
 #include <SDL.h>
+#include "texture.h"
 #include "sdl_resource.h"
 
 namespace doodle {
-
-	// The Renderable class
-	struct Renderable : public internal::SDLResource<SDL_Texture> {
-		Renderable(SDL_Texture* texture);
-
-		// Gets the alpha modulation value.
-		std::uint8_t alpha_mod() const noexcept;
-
-		// Sets the alpha modulation value.
-		void set_alpha_mod(std::uint8_t alpha) noexcept;
-
-		// Gets the blending mode.
-		SDL_BlendMode blend_mode() const noexcept;
-
-		// Sets the blending mode.
-		void set_blend_mode(SDL_BlendMode blend_mode) noexcept;
-
-		// Gets the color modulation.
-		SDL_Color color_mod() const noexcept;
-
-		// Sets the color modulation.
-		void set_color_mod(const SDL_Color& color) noexcept;
-
-		// Returns the width.
-		int width() const noexcept;
-
-		// Returns the height.
-		int height() const noexcept;
-	};
-
 
 	class Window;
 
 	// The Renderer class
 	class Renderer final : public internal::SDLResource<SDL_Renderer> {
 	public:
-
-		// Draw a renderable object onto the renderer's parent window
-		void draw(const Renderable& obj, SDL_Point dst, double angle,
-			SDL_Rect clip, SDL_Point center, SDL_RendererFlip flip) noexcept;
+		
+		// Creates a new doodle::Renderer.
+		// window: The window the renderer will render to.
+		// flags:  The flags used to create the renderer.
+		friend Renderer create_renderer(Window& window, std::uint32_t flags);
 
 		// Set the renderer's rendering area.
 		void set_viewport(const SDL_Rect& rect) noexcept;
@@ -53,6 +25,13 @@ namespace doodle {
 
 		// Get the renderer's drawing color.
 		SDL_Color draw_color() const noexcept;
+
+		// Draw a renderable object onto the renderer's parent window.
+		void draw(const Texture& obj, SDL_Point dst, double angle,
+			SDL_Rect clip, SDL_Point center, SDL_RendererFlip flip) noexcept;
+
+		// Draw a renderable object onto the renderer's parent window.
+		void draw(const Texture& obj, const SDL_Rect& src, const SDL_Rect& dst) noexcept;
 
 		// Draws a point onto this renderer's parent window.
 		void draw_point(const SDL_Point& point) const noexcept;
@@ -82,20 +61,23 @@ namespace doodle {
 		template <class Container>
 		void draw_filled_rects(const Container& filled_rects) const noexcept;
 
-		bool operator==(const Renderer& other) const noexcept
-		{
-			return parent_window_id == other.parent_window_id;
-		}
-		bool operator!=(const Renderer& other) const noexcept
-		{
-			return *this == other;
-		}
+		bool operator==(const Renderer& other) const noexcept;
+		bool operator!=(const Renderer& other) const noexcept;
+
+		// Clear the current rendering target with the given color.
+		void clear(const SDL_Color& color = { 0, 0, 0, 0 }) const noexcept;
+		
+		// Update the current rendering target with the rendering that was done.
+		void display() const noexcept;
 
 	private:
-		friend class Window;
-		Renderer(SDL_Renderer* renderer);
-		std::uint32_t parent_window_id;
+		Renderer(SDL_Renderer* renderer, std::uint32_t window_id);
+
+		// Parent window's id
+		std::uint32_t parent_window;
 	};
+
+	
 
 	template<class Container>
 	inline void Renderer::draw_points(const Container & points) const noexcept
