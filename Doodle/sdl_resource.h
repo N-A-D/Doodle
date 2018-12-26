@@ -15,9 +15,8 @@ namespace doodle {
 			SDLResource(SDL_ResourceType* resource_ptr
 				, std::function<void(SDL_ResourceType* resource)> destructor)
 				: resource(resource_ptr, destructor) {}
-			virtual operator bool() const noexcept { return resource != nullptr; }
-			virtual operator SDL_ResourceType*() const noexcept { return resource.get(); }
-		protected:
+			operator SDL_ResourceType*() const noexcept { return resource.get(); }
+		private:
 			std::shared_ptr<SDL_ResourceType> resource;
 		};
 
