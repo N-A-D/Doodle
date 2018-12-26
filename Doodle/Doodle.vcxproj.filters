@@ -31,6 +31,9 @@
     <Filter Include="Header Files\internal">
       <UniqueIdentifier>{80092a68-c4ae-49f9-b470-8f1b094cadd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\math">
+      <UniqueIdentifier>{b3249620-643d-4d95-8379-6d2cc45a7929}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="input.h">

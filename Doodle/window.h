@@ -10,6 +10,7 @@ namespace doodle {
 
 	class Window;
 
+	// The Renderer class
 	class Renderer final : public internal::SDLResource<SDL_Renderer> {
 	public:
 
@@ -65,6 +66,7 @@ namespace doodle {
 		std::uint32_t parent_window_id;
 	};
 
+	// The Window class
 	class Window final : public internal::SDLResource<SDL_Window> {
 	public:
 
@@ -83,7 +85,7 @@ namespace doodle {
 		// Set the window's icon.
 		void set_icon(SDL_Surface* icon) noexcept;
 
-		// Clear's the window with the given color.
+		// Clears the window with the given color.
 		void clear(const SDL_Color& color = { 0, 0, 0, 0 }) noexcept;
 
 		// Displays what has been rendered.

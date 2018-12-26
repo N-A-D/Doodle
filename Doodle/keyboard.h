@@ -7,6 +7,7 @@ namespace doodle {
 
 	constexpr std::size_t NUM_KEYBOARD_KEYS = 283;
 
+	// Enumeration of Keyboard keys
 	enum class Keyboard {
 		KEY_UNKNOWN = SDL_SCANCODE_UNKNOWN,
 		KEY_A = SDL_SCANCODE_A,

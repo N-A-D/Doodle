@@ -5,6 +5,7 @@
 
 namespace doodle {
 
+	// The Clock class
 	class Clock final {
 	public:
 
