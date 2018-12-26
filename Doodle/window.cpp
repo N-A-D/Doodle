@@ -1,5 +1,16 @@
 #include "window.h"
 #include "input.h"
+#include <string>
+#include <cassert>
+#include <stdexcept>
+
+doodle::Window doodle::create_window(const std::string & title, SDL_Point pos, SDL_Point dim, std::uint32_t flags)
+{
+	auto sdl_window = SDL_CreateWindow(title.c_str(), pos.x, pos.y, dim.x, dim.y, flags);
+	if (!sdl_window)
+		throw std::runtime_error("Could not create doodle::Window " + std::string(SDL_GetError()));
+	return Window(sdl_window);
+}
 
 bool doodle::Window::poll_events() const noexcept
 {
@@ -11,63 +22,53 @@ bool doodle::Window::poll_events() const noexcept
 		InputHandler::mouse_up[i] = false;
 		InputHandler::mouse_down[i] = false;
 	}
-	SDL_Event event;
-	while (SDL_PollEvent(&event)) {
-		switch (event.type)
+	SDL_Event e;
+	while (SDL_PollEvent(&e)) {
+		switch (e.type)
 		{
 		case SDL_QUIT:
 			return false;
-		case SDL_KEYUP:
-			InputHandler::key_up[static_cast<std::size_t>(event.key.keysym.scancode)] = true;
-			break;
 		case SDL_KEYDOWN:
-			InputHandler::key_down[static_cast<std::size_t>(event.key.keysym.scancode)] = true;
+			InputHandler::key_down[static_cast<std::size_t>(e.key.keysym.scancode)] = true;
 			break;
-		case SDL_MOUSEBUTTONUP:
-			InputHandler::mouse_up[static_cast<std::size_t>(event.button.button) - 1];
+		case SDL_KEYUP:
+			InputHandler::key_up[static_cast<std::size_t>(e.key.keysym.scancode)] = true;
 			break;
 		case SDL_MOUSEBUTTONDOWN:
-			InputHandler::mouse_down[static_cast<std::size_t>(event.button.button) - 1];
+			InputHandler::mouse_down[static_cast<std::size_t>(e.button.button) - 1] = true;
+			break;
+		case SDL_MOUSEBUTTONUP:
+			InputHandler::mouse_up[static_cast<std::size_t>(e.button.button) - 1] = true;
 			break;
 		default:
 			break;
 		}
 	}
-	return true;
-}
-
-doodle::Renderer doodle::Window::renderer() const noexcept
-{
-	return window_renderer;
+	return  true;
 }
 
 std::string doodle::Window::title() const noexcept
 {
-	return std::string(SDL_GetWindowTitle(resource.get()));
+	return std::string(SDL_GetWindowTitle(*this));
 }
 
 void doodle::Window::set_title(const std::string & title) noexcept
 {
-	SDL_SetWindowTitle(resource.get(), title.c_str());
+	SDL_SetWindowTitle(*this, title.c_str());
 }
 
 void doodle::Window::set_icon(SDL_Surface * icon) noexcept
 {
-	SDL_SetWindowIcon(resource.get(), icon);
+	assert(icon);
+	SDL_SetWindowIcon(*this, icon);
 }
 
-void doodle::Window::clear(const SDL_Color & color) noexcept
+std::uint32_t doodle::Window::id() const noexcept
 {
-	window_renderer.set_draw_color(color);
-	SDL_RenderClear(window_renderer);
+	return std::uint32_t(SDL_GetWindowID(*this));
 }
 
-void doodle::Window::display() noexcept
+doodle::Window::Window(SDL_Window * window)
+	: SDLResource(window, [](SDL_Window* window) { SDL_DestroyWindow(window); })
 {
-	SDL_RenderPresent(window_renderer);
-}
-
-std::uint32_t doodle::Window::delta_time() const noexcept
-{
-	return frametimer.ticks();
 }

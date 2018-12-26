@@ -3,7 +3,6 @@
 #include <SDL.h>
 #include <string>
 #include "clock.h"
-#include "renderer.h"
 #include "sdl_resource.h"
 
 namespace doodle {
@@ -12,11 +11,15 @@ namespace doodle {
 	class Window final : public internal::SDLResource<SDL_Window> {
 	public:
 
+		// Creates a new doodle::Window.
+		// title: The title of the window.
+		// pos:   The window's position.
+		// dim:   The window's dimensions.
+		// flags: Window creation flags.
+		friend Window create_window(const std::string& title, SDL_Point pos, SDL_Point dim, std::uint32_t flags);
+
 		// Process system events.
 		bool poll_events() const noexcept;
-
-		// Return the window's renderer.
-		Renderer renderer() const noexcept;
 
 		// Return the window's title.
 		std::string title() const noexcept;
@@ -27,18 +30,11 @@ namespace doodle {
 		// Set the window's icon.
 		void set_icon(SDL_Surface* icon) noexcept;
 
-		// Clears the window with the given color.
-		void clear(const SDL_Color& color = { 0, 0, 0, 0 }) noexcept;
-
-		// Displays what has been rendered.
-		void display() noexcept;
-
-		// Returns the time taken between consecutive frames.
-		std::uint32_t delta_time() const noexcept;
+		// Returns the window's.
+		std::uint32_t id() const noexcept;
 
 	private:
-		mutable Clock frametimer;
-		Renderer window_renderer;
+		Window(SDL_Window* window);
 	};
 
 }
