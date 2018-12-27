@@ -1,6 +1,6 @@
 #include <cmath>
+#include "vector2.h"
 #include "trigonometric.h"
-#include "geometric.h"
 
 namespace doodle {
 
