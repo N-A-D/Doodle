@@ -14,11 +14,14 @@ doodle::Window doodle::create_window(const std::string & title, SDL_Point pos, S
 
 bool doodle::Window::poll_events() const noexcept
 {
-	for (std::size_t i = 0; i < NUM_KEYBOARD_KEYS; i++) {
+	if (should_close) return false;
+	for (std::size_t i = 0; i < NUM_KEYBOARD_KEYS; i++) 
+	{
 		InputHandler::key_up[i] = false;
 		InputHandler::key_down[i] = false;
 	}
-	for (std::size_t i = 0; i < NUM_MOUSE_BUTTONS; i++) {
+	for (std::size_t i = 0; i < NUM_MOUSE_BUTTONS; i++) 
+	{
 		InputHandler::mouse_up[i] = false;
 		InputHandler::mouse_down[i] = false;
 	}
@@ -68,7 +71,12 @@ std::uint32_t doodle::Window::id() const noexcept
 	return std::uint32_t(SDL_GetWindowID(*this));
 }
 
+void doodle::Window::close() noexcept
+{
+	should_close = true;
+}
+
 doodle::Window::Window(SDL_Window * window)
-	: SDLResource(window, [](SDL_Window* window) { SDL_DestroyWindow(window); })
+	: should_close(false), SDLResource(window, [](SDL_Window* window) { SDL_DestroyWindow(window); })
 {
 }

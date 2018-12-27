@@ -19,6 +19,7 @@ namespace doodle {
 		friend Window create_window(const std::string& title, SDL_Point pos, SDL_Point dim, std::uint32_t flags);
 
 		// Process system events.
+		// Returns false if the window should close, true otherwise.
 		bool poll_events() const noexcept;
 
 		// Return the window's title.
@@ -33,7 +34,11 @@ namespace doodle {
 		// Returns the window's.
 		std::uint32_t id() const noexcept;
 
+		// Instructs the window to close.
+		void close() noexcept;
+
 	private:
+		bool should_close = false;
 		Window(SDL_Window* window);
 	};
 
