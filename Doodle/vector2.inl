@@ -47,7 +47,7 @@ namespace doodle {
 	}
 
 	template<class T>
-	Vector2<T> operator/(const Vector2<T>& l, T scale) noexcept
+	Vector2<T> operator/(const Vector2<T>& l, T scale)
 	{
 		return Vector2<T>(l) *= scale;
 	}
