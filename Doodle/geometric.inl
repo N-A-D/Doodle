@@ -7,7 +7,7 @@ namespace doodle {
 	template <class T> 
 	T length(const Vector2<T>& u) noexcept
 	{
-		std::sqrt(length_sq(u));
+		return std::sqrt(length_sq(u));
 	}
 
 	template <class T> 
