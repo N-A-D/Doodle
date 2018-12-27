@@ -1,14 +1,20 @@
 #pragma once
 
-#include "font.h"
-#include "image.h"
-#include "text.h"
-#include "sound.h"
-#include "music.h"
 #include "input.h"
 #include "window.h"
+#include "renderer.h"
+#include "font.h"
+#include "texture.h"
+#include "music.h"
+#include "sound.h"
+#include "clock.h"
 
 namespace doodle {
-	bool init() noexcept;
-	bool quit() noexcept;
+
+	// Initializes Doodle.
+	void init();
+
+	// Shuts down Doodle.
+	void quit();
+
 }
