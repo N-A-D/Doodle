@@ -36,5 +36,6 @@ namespace doodle {
 		bool should_close = false;
 	};
 
+	// Loads a new SDL_Window resource.
 	SDL_Window* create_window(const std::string& title, SDL_Point pos, SDL_Point dim, std::uint32_t flags);
 }

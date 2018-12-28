@@ -72,7 +72,7 @@ namespace doodle {
 		std::uint32_t parent_window;
 	};
 
-
+	// Loads a new SDL_Renderer resource from a doodle::Window.
 	std::pair<SDL_Renderer*, std::uint32_t> create_renderer(Window& window, std::uint32_t flags);
 
 	template<class Container>

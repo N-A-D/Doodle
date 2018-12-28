@@ -45,6 +45,7 @@ namespace doodle {
 
 	};
 
+	// Loads a new TTF_Font resource at a given size.
 	TTF_Font* load_font(const std::string& filename, int size);
 
 }

@@ -44,11 +44,12 @@ namespace doodle {
 
 	};
 
-	// Creates a new doodle::Sound object.
+	// Loads a new Mix_Chunk resource.
 	Mix_Chunk* load_sound(const std::string& filename);
 
-	// // Creates a new doodle::Sound object with a starting volume.
+	// Loads a new Mix_Chunk resource with an initial volumne.
 	Mix_Chunk* load_sound(const std::string& filename, int volume);
+
 }
 
 namespace doodle {

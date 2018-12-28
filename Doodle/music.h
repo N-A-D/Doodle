@@ -26,6 +26,7 @@ namespace doodle {
 
 	};
 
+	// Loads a new Mix_Music resource.
 	Mix_Music* load_music(const std::string& filename);
 
 }

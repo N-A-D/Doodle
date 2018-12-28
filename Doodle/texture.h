@@ -43,9 +43,16 @@ namespace doodle {
 
 	};
 
+	// Loads a new SDL_Texture resource from an image file.
 	SDL_Texture* load_image(const Renderer& renderer, const std::string& filename);
+
+	// Loads a new SDL_Texture resource from solid rendered text.
 	SDL_Texture* load_solid_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color);
+	
+	// Loads a new SDL_Texture resource from shaded rendered text.
 	SDL_Texture* load_shaded_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color, const SDL_Color& bg_color);
+	
+	// Loads a new SDL_Texture resource from blended rendered text.	
 	SDL_Texture* load_blended_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color);
 
 }
