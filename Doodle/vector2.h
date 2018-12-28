@@ -2,6 +2,7 @@
 
 namespace doodle {
 
+	// Two dimensional vector.
 	template <class T>
 	struct Vector2 final {
 		Vector2() = default;
@@ -18,9 +19,11 @@ namespace doodle {
 	template <class T> Vector2<T> operator*(const Vector2<T>& l, T scale) noexcept;
 	template <class T> Vector2<T> operator/(const Vector2<T>& l, T scale);
 
+	// Aliases for likely Vector2 specializations.
 	using Vector2i = Vector2<int>;
 	using Vector2f = Vector2<float>;
 	using Vector2d = Vector2<double>;
+
 }
 
 #include "vector2.inl"
