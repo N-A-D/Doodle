@@ -6,11 +6,6 @@
 #include "font.h"
 #include "renderer.h"
 
-doodle::Texture::Texture(SDL_Texture * texture)
-	: SDLResource(texture, [](SDL_Texture* texture) { SDL_DestroyTexture(texture); })
-{
-}
-
 std::uint8_t doodle::Texture::alpha_mod() const noexcept
 {
 	std::uint8_t alpha;
@@ -59,6 +54,11 @@ int doodle::Texture::height() const noexcept
 	int h;
 	SDL_QueryTexture(*this, nullptr, nullptr, nullptr, &h);
 	return h;
+}
+
+doodle::Texture::Texture(SDL_Texture * texture)
+	: SDLResource(texture, [](SDL_Texture* texture) { SDL_DestroyTexture(texture); })
+{
 }
 
 doodle::Texture doodle::load_image(const Renderer& renderer, const std::string& filename)

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <string>
 #include "sdl_resource.h"
 
@@ -39,12 +39,20 @@ namespace doodle {
 
 	private:
 
+		Texture(SDL_Texture* texture);
+
+		// Creates a new doodle::Texture object from a loaded image file.
 		friend Texture load_image(const Renderer& renderer, const std::string& filename);
+
+		// Creates a new doodle::Texture object from solid rendered text.
 		friend Texture load_solid_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color);
+		
+		// Creates a new doodle::Texture object from shaded rendered text.
 		friend Texture load_shaded_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color, const SDL_Color& bg_color);
+		
+		// Creates a new doodle::Texture object from blended rendered text.
 		friend Texture load_blended_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color);
 
-		Texture(SDL_Texture* texture);
 	};
 
 }

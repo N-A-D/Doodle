@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 #include "sdl_resource.h"
 
 namespace doodle {
@@ -38,7 +38,11 @@ namespace doodle {
 
 	private:
 		Sound(Mix_Chunk* chunk);
+
+		// Creates a new doodle::Sound object.
 		friend Sound load_sound(const std::string& filename);
+
+		// // Creates a new doodle::Sound object with a starting volume.
 		friend Sound load_sound(const std::string& filename, int volume);
 	};
 

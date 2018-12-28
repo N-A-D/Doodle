@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL_ttf.h>
+#include <SDL2/SDL_ttf.h>
 #include "sdl_resource.h"
 
 namespace doodle {
@@ -41,6 +41,7 @@ namespace doodle {
 
 		Font(TTF_Font* font);
 
+		// Creates a new doodle::Font object. 
 		friend Font load_font(const std::string& filename, int size);
 	};
 

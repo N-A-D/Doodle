@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 #include "sdl_resource.h"
 
 namespace doodle {
@@ -20,7 +20,8 @@ namespace doodle {
 
 	private:
 		Music(Mix_Music* music);
-	
+		
+		// Creates a new doodle::Music object.
 		friend Music load_music(const std::string& filename);
 	};
 
