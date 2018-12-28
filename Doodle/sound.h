@@ -13,7 +13,7 @@ namespace doodle {
 	{
 	public:
 
-		Sound(Mix_Chunk* chunk);
+		Sound(Mix_Chunk* chunk) noexcept;
 
 		// Sets the volume for the sound sample
 		void set_volume(int volume) noexcept;

@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <string>
 
-doodle::Sound::Sound(Mix_Chunk * chunk)
+doodle::Sound::Sound(Mix_Chunk * chunk) noexcept
 	: SDLResource(chunk, [](Mix_Chunk* chunk) { Mix_FreeChunk(chunk); })
 {
 }

@@ -13,7 +13,7 @@ namespace doodle {
 		class SDLResource {
 		public:
 			SDLResource(SDL_ResourceType* resource_ptr
-				, std::function<void(SDL_ResourceType* resource)> destructor)
+				, std::function<void(SDL_ResourceType* resource)> destructor) noexcept
 				: resource(resource_ptr, destructor) {}
 			operator SDL_ResourceType*() const noexcept { return resource.get(); }
 		private:

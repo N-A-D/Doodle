@@ -1,7 +1,7 @@
 #include "music.h"
 #include <stdexcept>
 
-doodle::Music::Music(Mix_Music * music)
+doodle::Music::Music(Mix_Music * music) noexcept
 	: SDLResource(music, [](Mix_Music* music) { Mix_FreeMusic(music); })
 {
 }

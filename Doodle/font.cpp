@@ -2,7 +2,7 @@
 #include <string>
 #include <stdexcept>
 
-doodle::Font::Font(TTF_Font * font)
+doodle::Font::Font(TTF_Font * font) noexcept
 	: SDLResource(font, [](TTF_Font* font) { TTF_CloseFont(font); })
 {
 }

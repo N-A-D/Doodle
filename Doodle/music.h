@@ -13,7 +13,7 @@ namespace doodle {
 	{
 	public:
 
-		Music(Mix_Music* music);
+		Music(Mix_Music* music) noexcept;
 
 		// Plays this music track
 		// loops: The number of times to loop. -1 is infinite

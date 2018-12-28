@@ -12,7 +12,7 @@ namespace doodle {
 	{
 	public:
 
-		Font(TTF_Font* font);
+		Font(TTF_Font* font) noexcept;
 
 		// Returns the this font's style
 		// The returned style is a bitmask composed of the following:
