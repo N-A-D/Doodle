@@ -13,7 +13,10 @@ namespace doodle {
 	using AssetFamily = std::size_t;
 
 	// The BasicAsset class
-	struct BasicAsset {
+	class BasicAsset {
+	public:
+		BasicAsset() = default;
+		virtual ~BasicAsset() = default;
 	protected:
 		static AssetFamily family_id;
 	};
@@ -24,14 +27,16 @@ namespace doodle {
 	// Classes that are meant to be 'assets' must inherit this class for use in a doodle::AssetManager.
 	template <class T>
 	class Asset : public BasicAsset {
+	public:
+		Asset() = default;
+		virtual ~Asset() = default;
+	private:
 		friend class AssetManager;
-
 		// Returns the type id of an Asset type.
 		AssetFamily family() noexcept {
 			static AssetFamily id = family_id++;
 			return id;
 		}
-
 	};
 
 	// The AssetManager class
@@ -40,6 +45,8 @@ namespace doodle {
 	// - An 'Asset' must be a class that inherits from the class doodle::Asset above.
 	class AssetManager final : internal::NonCopyable {
 	public:
+		AssetManager() = default;
+
 		// Reduce typing
 		using AssetTable = std::unordered_map<std::string, std::shared_ptr<BasicAsset>>;
 		using AssetDatabase = std::unordered_map<AssetFamily, AssetTable>;
