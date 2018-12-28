@@ -2,6 +2,11 @@
 #include <string>
 #include <stdexcept>
 
+doodle::Font::Font(TTF_Font * font)
+	: SDLResource(font, [](TTF_Font* font) { TTF_CloseFont(font); })
+{
+}
+
 int doodle::Font::font_style() const noexcept
 {
 	return TTF_GetFontStyle(*this);
@@ -27,15 +32,10 @@ int doodle::Font::font_height() const noexcept
 	return TTF_FontHeight(*this);
 }
 
-doodle::Font::Font(TTF_Font * font)
-	: SDLResource(font, [](TTF_Font* font) { TTF_CloseFont(font); })
-{
-}
-
-doodle::Font doodle::load_font(const std::string & filename, int size)
+TTF_Font* doodle::load_font(const std::string & filename, int size)
 {
 	auto ttf_font = TTF_OpenFont(filename.c_str(), size);
 	if (!ttf_font)
 		throw std::runtime_error("Could not create doodle::Font " + std::string(TTF_GetError()));
-	return Font(ttf_font);
+	return ttf_font;
 }

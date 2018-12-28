@@ -3,11 +3,17 @@
 #include <string>
 #include <SDL2/SDL_mixer.h>
 #include "sdl_resource.h"
+#include "asset.h"
 
 namespace doodle {
 
-	class Sound final : public internal::SDLResource<Mix_Chunk> {
+	class Sound final 
+		: public Asset<Sound>
+		, public internal::SDLResource<Mix_Chunk> 
+	{
 	public:
+
+		Sound(Mix_Chunk* chunk);
 
 		// Sets the volume for the sound sample
 		void set_volume(int volume) noexcept;
@@ -36,16 +42,13 @@ namespace doodle {
 		// duration: The time to play the sample.
 		void fade_in_timed(int channel, int loops, int fade_in_time, int duration) const noexcept;
 
-	private:
-		Sound(Mix_Chunk* chunk);
-
-		// Creates a new doodle::Sound object.
-		friend Sound load_sound(const std::string& filename);
-
-		// // Creates a new doodle::Sound object with a starting volume.
-		friend Sound load_sound(const std::string& filename, int volume);
 	};
 
+	// Creates a new doodle::Sound object.
+	Mix_Chunk* load_sound(const std::string& filename);
+
+	// // Creates a new doodle::Sound object with a starting volume.
+	Mix_Chunk* load_sound(const std::string& filename, int volume);
 }
 
 namespace doodle {

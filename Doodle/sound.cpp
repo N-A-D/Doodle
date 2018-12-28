@@ -2,6 +2,11 @@
 #include <stdexcept>
 #include <string>
 
+doodle::Sound::Sound(Mix_Chunk * chunk)
+	: SDLResource(chunk, [](Mix_Chunk* chunk) { Mix_FreeChunk(chunk); })
+{
+}
+
 void doodle::Sound::set_volume(int volume) noexcept
 {
 	Mix_VolumeChunk(*this, volume);
@@ -27,26 +32,21 @@ void doodle::Sound::fade_in_timed(int channel, int loops, int fade_in_time, int 
 	Mix_FadeInChannelTimed(channel, *this, loops, fade_in_time, duration);
 }
 
-doodle::Sound::Sound(Mix_Chunk * chunk)
-	: SDLResource(chunk, [](Mix_Chunk* chunk) { Mix_FreeChunk(chunk); })
-{
-}
-
-doodle::Sound doodle::load_sound(const std::string & filename)
+Mix_Chunk* doodle::load_sound(const std::string & filename)
 {
 	auto mix_chunk = Mix_LoadWAV(filename.c_str());
 	if (!mix_chunk)
 		throw std::runtime_error("Could not create doodle::Sound " + std::string(Mix_GetError()));
-	return Sound(mix_chunk);
+	return mix_chunk;
 }
 
-doodle::Sound doodle::load_sound(const std::string & filename, int volume)
+Mix_Chunk* doodle::load_sound(const std::string & filename, int volume)
 {
 	auto mix_chunk = Mix_LoadWAV(filename.c_str());
 	if (!mix_chunk)
 		throw std::runtime_error("Could not create doodle::Sound " + std::string(Mix_GetError()));
 	Mix_VolumeChunk(mix_chunk, volume);
-	return Sound(mix_chunk);
+	return mix_chunk;
 }
 
 void doodle::mixer::allocate_channels(int n) noexcept

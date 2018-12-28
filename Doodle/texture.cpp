@@ -5,10 +5,15 @@
 #include "font.h"
 #include "renderer.h"
 
+doodle::Texture::Texture(SDL_Texture * texture) noexcept
+	: SDLResource(texture, [](SDL_Texture* texture) { SDL_DestroyTexture(texture); })
+{
+}
+
 std::uint8_t doodle::Texture::alpha_mod() const noexcept
 {
 	std::uint8_t alpha;
-	return SDL_GetTextureAlphaMod(*this, &alpha);
+	SDL_GetTextureAlphaMod(*this, &alpha);
 	return alpha;
 }
 
@@ -55,12 +60,7 @@ int doodle::Texture::height() const noexcept
 	return h;
 }
 
-doodle::Texture::Texture(SDL_Texture * texture)
-	: SDLResource(texture, [](SDL_Texture* texture) { SDL_DestroyTexture(texture); })
-{
-}
-
-doodle::Texture doodle::load_image(const Renderer& renderer, const std::string& filename)
+SDL_Texture * doodle::load_image(const Renderer & renderer, const std::string & filename)
 {
 	auto surf = IMG_Load(filename.c_str());
 	if (!surf)
@@ -68,10 +68,10 @@ doodle::Texture doodle::load_image(const Renderer& renderer, const std::string& 
 	auto texture = SDL_CreateTextureFromSurface(renderer, surf);
 	if (!texture)
 		throw std::runtime_error("Could not create doodle::Texture " + std::string(SDL_GetError()));
-	return Texture(texture);
+	return texture;
 }
 
-doodle::Texture doodle::load_solid_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color)
+SDL_Texture * doodle::load_solid_text(const Renderer & renderer, const Font & font, const std::string & text, const SDL_Color & text_color)
 {
 	auto surf = TTF_RenderText_Solid(font, text.c_str(), text_color);
 	if (!surf)
@@ -79,10 +79,10 @@ doodle::Texture doodle::load_solid_text(const Renderer& renderer, const Font& fo
 	auto texture = SDL_CreateTextureFromSurface(renderer, surf);
 	if (!texture)
 		throw std::runtime_error("Could not create doodle::Texture " + std::string(SDL_GetError()));
-	return Texture(texture);
+	return texture;
 }
 
-doodle::Texture doodle::load_shaded_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color, const SDL_Color& bg_color)
+SDL_Texture * doodle::load_shaded_text(const Renderer & renderer, const Font & font, const std::string & text, const SDL_Color & text_color, const SDL_Color & bg_color)
 {
 	auto surf = TTF_RenderText_Shaded(font, text.c_str(), text_color, bg_color);
 	if (!surf)
@@ -90,10 +90,10 @@ doodle::Texture doodle::load_shaded_text(const Renderer& renderer, const Font& f
 	auto texture = SDL_CreateTextureFromSurface(renderer, surf);
 	if (!texture)
 		throw std::runtime_error("Could not create doodle::Texture " + std::string(SDL_GetError()));
-	return Texture(texture);
+	return texture;
 }
 
-doodle::Texture doodle::load_blended_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color)
+SDL_Texture * doodle::load_blended_text(const Renderer & renderer, const Font & font, const std::string & text, const SDL_Color & text_color)
 {
 	auto surf = TTF_RenderText_Blended(font, text.c_str(), text_color);
 	if (!surf)
@@ -101,5 +101,5 @@ doodle::Texture doodle::load_blended_text(const Renderer& renderer, const Font& 
 	auto texture = SDL_CreateTextureFromSurface(renderer, surf);
 	if (!texture)
 		throw std::runtime_error("Could not create doodle::Texture " + std::string(SDL_GetError()));
-	return Texture(texture);
+	return texture;
 }

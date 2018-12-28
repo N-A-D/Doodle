@@ -2,11 +2,17 @@
 
 #include <SDL2/SDL_ttf.h>
 #include "sdl_resource.h"
+#include "asset.h"
 
 namespace doodle {
 
-	class Font final : public internal::SDLResource<TTF_Font> {
+	class Font final 
+		: public Asset<Font>
+		, public internal::SDLResource<TTF_Font> 
+	{
 	public:
+
+		Font(TTF_Font* font);
 
 		// Returns the this font's style
 		// The returned style is a bitmask composed of the following:
@@ -37,12 +43,8 @@ namespace doodle {
 		// together vertically as possible. 
 		int font_height() const noexcept;
 
-	private:
-
-		Font(TTF_Font* font);
-
-		// Creates a new doodle::Font object. 
-		friend Font load_font(const std::string& filename, int size);
 	};
+
+	TTF_Font* load_font(const std::string& filename, int size);
 
 }

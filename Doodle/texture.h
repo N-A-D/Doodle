@@ -3,15 +3,19 @@
 #include <SDL2/SDL.h>
 #include <string>
 #include "sdl_resource.h"
+#include "asset.h"
 
 namespace doodle {
 
 	class Font;
 	class Renderer;
 
-	// The Renderable class
-	class Texture final : public internal::SDLResource<SDL_Texture> {
+	class Texture final 
+		: public Asset<Texture>
+		, public internal::SDLResource<SDL_Texture> 
+	{
 	public:
+		Texture(SDL_Texture* texture) noexcept;
 
 		// Returns the alpha modulation of the texture.
 		std::uint8_t alpha_mod() const noexcept;
@@ -37,22 +41,11 @@ namespace doodle {
 		// Returns the height of the texture.
 		int height() const noexcept;
 
-	private:
-
-		Texture(SDL_Texture* texture);
-
-		// Creates a new doodle::Texture object from a loaded image file.
-		friend Texture load_image(const Renderer& renderer, const std::string& filename);
-
-		// Creates a new doodle::Texture object from solid rendered text.
-		friend Texture load_solid_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color);
-		
-		// Creates a new doodle::Texture object from shaded rendered text.
-		friend Texture load_shaded_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color, const SDL_Color& bg_color);
-		
-		// Creates a new doodle::Texture object from blended rendered text.
-		friend Texture load_blended_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color);
-
 	};
+
+	SDL_Texture* load_image(const Renderer& renderer, const std::string& filename);
+	SDL_Texture* load_solid_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color);
+	SDL_Texture* load_shaded_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color, const SDL_Color& bg_color);
+	SDL_Texture* load_blended_text(const Renderer& renderer, const Font& font, const std::string& text, const SDL_Color& text_color);
 
 }
