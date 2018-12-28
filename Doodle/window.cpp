@@ -4,12 +4,9 @@
 #include <cassert>
 #include <stdexcept>
 
-doodle::Window doodle::create_window(const std::string & title, SDL_Point pos, SDL_Point dim, std::uint32_t flags)
+doodle::Window::Window(SDL_Window * window) noexcept
+	: should_close(false), SDLResource(window, [](SDL_Window* window) { SDL_DestroyWindow(window); })
 {
-	auto sdl_window = SDL_CreateWindow(title.c_str(), pos.x, pos.y, dim.x, dim.y, flags);
-	if (!sdl_window)
-		throw std::runtime_error("Could not create doodle::Window " + std::string(SDL_GetError()));
-	return Window(sdl_window);
 }
 
 bool doodle::Window::poll_events() const noexcept
@@ -76,7 +73,11 @@ void doodle::Window::close() noexcept
 	should_close = true;
 }
 
-doodle::Window::Window(SDL_Window * window)
-	: should_close(false), SDLResource(window, [](SDL_Window* window) { SDL_DestroyWindow(window); })
+SDL_Window* doodle::create_window(const std::string & title, SDL_Point pos, SDL_Point dim, std::uint32_t flags)
 {
+	auto sdl_window = SDL_CreateWindow(title.c_str(), pos.x, pos.y, dim.x, dim.y, flags);
+	if (!sdl_window)
+		throw std::runtime_error("Could not create doodle::Window " + std::string(SDL_GetError()));
+	return sdl_window;
 }
+

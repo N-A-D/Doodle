@@ -11,12 +11,7 @@ namespace doodle {
 	class Window final : public internal::SDLResource<SDL_Window> {
 	public:
 
-		// Creates a new doodle::Window.
-		// title: The title of the window.
-		// pos:   The window's position.
-		// dim:   The window's dimensions.
-		// flags: Window creation flags.
-		friend Window create_window(const std::string& title, SDL_Point pos, SDL_Point dim, std::uint32_t flags);
+		Window(SDL_Window* window) noexcept;
 
 		// Process system events.
 		// Returns false if the window should close, true otherwise.
@@ -39,7 +34,7 @@ namespace doodle {
 
 	private:
 		bool should_close = false;
-		Window(SDL_Window* window);
 	};
 
+	SDL_Window* create_window(const std::string& title, SDL_Point pos, SDL_Point dim, std::uint32_t flags);
 }

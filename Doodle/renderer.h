@@ -12,10 +12,7 @@ namespace doodle {
 	class Renderer final : public internal::SDLResource<SDL_Renderer> {
 	public:
 		
-		// Creates a new doodle::Renderer.
-		// window: The window the renderer will render to.
-		// flags:  The flags used to create the renderer.
-		friend Renderer create_renderer(Window& window, std::uint32_t flags);
+		Renderer(const std::pair<SDL_Renderer*, std::uint32_t>& renderer_data) noexcept;
 
 		// Set the renderer's rendering area.
 		void set_viewport(const SDL_Rect& rect) noexcept;
@@ -71,13 +68,12 @@ namespace doodle {
 		void display() const noexcept;
 
 	private:
-		Renderer(SDL_Renderer* renderer, std::uint32_t window_id);
-
 		// Parent window's id
 		std::uint32_t parent_window;
 	};
 
-	
+
+	std::pair<SDL_Renderer*, std::uint32_t> create_renderer(Window& window, std::uint32_t flags);
 
 	template<class Container>
 	inline void Renderer::draw_points(const Container & points) const noexcept

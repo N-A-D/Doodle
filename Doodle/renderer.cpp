@@ -3,9 +3,9 @@
 #include <stdexcept>
 #include <string>
 
-doodle::Renderer::Renderer(SDL_Renderer * renderer, std::uint32_t window_id)
-	: SDLResource(renderer, [](SDL_Renderer* renderer) { SDL_DestroyRenderer(renderer); })
-	, parent_window(window_id)
+doodle::Renderer::Renderer(const std::pair<SDL_Renderer *, std::uint32_t>& renderer_data) noexcept
+	: SDLResource(renderer_data.first, [](SDL_Renderer* renderer) { SDL_DestroyRenderer(renderer); })
+	, parent_window(renderer_data.second)
 {
 }
 
@@ -78,10 +78,10 @@ void doodle::Renderer::display() const noexcept
 	SDL_RenderPresent(*this);
 }
 
-doodle::Renderer doodle::create_renderer(Window & window, std::uint32_t flags)
+std::pair<SDL_Renderer*, std::uint32_t> doodle::create_renderer(Window & window, std::uint32_t flags)
 {
 	auto sdl_renderer = SDL_CreateRenderer(window, -1, flags);
 	if (!sdl_renderer)
 		throw std::runtime_error("Could not create doodle::Renderer " + std::string(SDL_GetError()));
-	return Renderer(sdl_renderer, window.id());
+	return std::make_pair(sdl_renderer, window.id());
 }
