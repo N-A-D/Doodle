@@ -1,9 +1,9 @@
 #pragma once
 
-#include <SDL2/SDL.h>
 #include <vector>
 #include "mouse.h"
 #include "keyboard.h"
+#include <SDL2/SDL.h>
 
 namespace doodle {
 

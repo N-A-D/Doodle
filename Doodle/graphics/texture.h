@@ -1,9 +1,9 @@
 #pragma once
 
-#include <SDL2/SDL.h>
 #include <string>
-#include "sdl_resource.h"
-#include "asset.h"
+#include <SDL2/SDL.h>
+#include "../asset/asset.h"
+#include "../internal/sdl_resource.h"
 
 namespace doodle {
 

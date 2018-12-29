@@ -1,7 +1,7 @@
 #pragma once
 
-#include <SDL2/SDL.h>
 #include <cstddef>
+#include <SDL2/SDL.h>
 
 namespace doodle {
 

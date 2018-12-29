@@ -70,19 +70,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)3rdParty/SDL2/includes;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty/SDL2/libraries/dev/Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)3rdParty\libraries\dev\SDL2\Win32;$(SolutionDir)3rdParty\libraries\dev\SDL2_image\Win32;$(SolutionDir)3rdParty\libraries\dev\SDL2_mixer\Win32;$(SolutionDir)3rdParty\libraries\dev\SDL2_ttf\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)3rdParty/SDL2/includes;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty/SDL2/libraries/run/Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)3rdParty/libraries/SDL2/run/Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)3rdParty/SDL2/includes;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty/SDL2/libraries/dev/Win64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)3rdParty\libraries\dev\SDL2_ttf\Win64;$(SolutionDir)3rdParty\libraries\dev\SDL2_mixer\Win64;$(SolutionDir)3rdParty\libraries\dev\SDL2_image\Win64;$(SolutionDir)3rdParty\libraries\dev\SDL2\Win64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)3rdParty/SDL2/includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)3rdParty/SDL2/libraries/run/Win64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -146,18 +146,50 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="clock.h" />
+    <ClInclude Include="asset.h" />
+    <ClInclude Include="asset\asset.h" />
+    <ClInclude Include="audio.h" />
+    <ClInclude Include="audio\music.h" />
+    <ClInclude Include="audio\sound.h" />
+    <ClInclude Include="display.h" />
+    <ClInclude Include="display\renderer.h" />
+    <ClInclude Include="display\window.h" />
     <ClInclude Include="doodle.h" />
-    <ClInclude Include="input.h" />
-    <ClInclude Include="keyboard.h" />
-    <ClInclude Include="mouse.h" />
-    <ClInclude Include="sdl_resource.h" />
-    <ClInclude Include="window.h" />
+    <ClInclude Include="graphics.h" />
+    <ClInclude Include="graphics\font.h" />
+    <ClInclude Include="graphics\texture.h" />
+    <ClInclude Include="internal\noncopyable.h" />
+    <ClInclude Include="internal\sdl_resource.h" />
+    <ClInclude Include="math.h" />
+    <ClInclude Include="math\geometric.h" />
+    <ClInclude Include="math\numeric.h" />
+    <ClInclude Include="math\random.h" />
+    <ClInclude Include="math\trigonometric.h" />
+    <ClInclude Include="math\vector2.h" />
+    <ClInclude Include="system.h" />
+    <ClInclude Include="system\clock.h" />
+    <ClInclude Include="system\input.h" />
+    <ClInclude Include="system\keyboard.h" />
+    <ClInclude Include="system\mouse.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="clock.cpp" />
-    <ClCompile Include="input.cpp" />
-    <ClCompile Include="window.cpp" />
+    <ClCompile Include="asset\asset.cpp" />
+    <ClCompile Include="audio\music.cpp" />
+    <ClCompile Include="audio\sound.cpp" />
+    <ClCompile Include="display\renderer.cpp" />
+    <ClCompile Include="display\window.cpp" />
+    <ClCompile Include="doodle.cpp" />
+    <ClCompile Include="graphics\font.cpp" />
+    <ClCompile Include="graphics\texture.cpp" />
+    <ClCompile Include="system\clock.cpp" />
+    <ClCompile Include="system\input.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="asset\asset.inl" />
+    <None Include="math\geometric.inl" />
+    <None Include="math\numeric.inl" />
+    <None Include="math\trigonometric.inl" />
+    <None Include="math\vector2.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,8 +2,8 @@
 
 #include <SDL2/SDL.h>
 #include <type_traits>
-#include "texture.h"
-#include "sdl_resource.h"
+#include "../graphics/texture.h"
+#include "../internal/sdl_resource.h"
 
 namespace doodle {
 

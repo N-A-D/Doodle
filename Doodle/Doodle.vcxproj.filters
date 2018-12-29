@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\input">
-      <UniqueIdentifier>{141f5fb0-b13e-4b50-93e5-062d25f8164f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\system">
       <UniqueIdentifier>{974a0109-7565-460e-8172-c4aa53904fba}</UniqueIdentifier>
     </Filter>
@@ -34,39 +31,155 @@
     <Filter Include="Header Files\math">
       <UniqueIdentifier>{b3249620-643d-4d95-8379-6d2cc45a7929}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\system">
+      <UniqueIdentifier>{29d72aac-cc0f-4043-b388-9eac330c166f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\display">
+      <UniqueIdentifier>{631356a3-800a-49cc-bce2-d41fac1b5f53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\graphics">
+      <UniqueIdentifier>{0a9e8784-284c-49fe-bf48-7d317c38e597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\audio">
+      <UniqueIdentifier>{6ea410e6-e5e1-4978-a1ef-0984cdc04fab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\asset">
+      <UniqueIdentifier>{6cb6a6c2-f4ca-4042-b6fb-72baf5ef0fc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\asset">
+      <UniqueIdentifier>{e82de640-2029-4c82-a62f-345ac7d713ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\z_include">
+      <UniqueIdentifier>{6126c8fc-0390-4b5b-aa3d-b87f2af35380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\z_include">
+      <UniqueIdentifier>{bdf0377a-6181-498a-bda6-8c76759ef4b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="input.h">
-      <Filter>Header Files\input</Filter>
-    </ClInclude>
-    <ClInclude Include="keyboard.h">
-      <Filter>Header Files\input</Filter>
-    </ClInclude>
-    <ClInclude Include="mouse.h">
-      <Filter>Header Files\input</Filter>
-    </ClInclude>
-    <ClInclude Include="window.h">
-      <Filter>Header Files\display</Filter>
-    </ClInclude>
-    <ClInclude Include="clock.h">
+    <ClInclude Include="system\clock.h">
       <Filter>Header Files\system</Filter>
     </ClInclude>
-    <ClInclude Include="doodle.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="system\input.h">
+      <Filter>Header Files\system</Filter>
     </ClInclude>
-    <ClInclude Include="sdl_resource.h">
+    <ClInclude Include="system\keyboard.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="system\mouse.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="audio.h">
+      <Filter>Header Files\z_include</Filter>
+    </ClInclude>
+    <ClInclude Include="display.h">
+      <Filter>Header Files\z_include</Filter>
+    </ClInclude>
+    <ClInclude Include="doodle.h">
+      <Filter>Header Files\z_include</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics.h">
+      <Filter>Header Files\z_include</Filter>
+    </ClInclude>
+    <ClInclude Include="math.h">
+      <Filter>Header Files\z_include</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>Header Files\z_include</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\asset.h">
+      <Filter>Header Files\asset</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\music.h">
+      <Filter>Header Files\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\sound.h">
+      <Filter>Header Files\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="display\renderer.h">
+      <Filter>Header Files\display</Filter>
+    </ClInclude>
+    <ClInclude Include="display\window.h">
+      <Filter>Header Files\display</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\font.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\texture.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\noncopyable.h">
       <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\sdl_resource.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="math\geometric.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\numeric.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\random.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\trigonometric.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\vector2.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="asset.h">
+      <Filter>Header Files\z_include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="input.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="system\clock.cpp">
+      <Filter>Source Files\system</Filter>
     </ClCompile>
-    <ClCompile Include="clock.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="system\input.cpp">
+      <Filter>Source Files\system</Filter>
     </ClCompile>
-    <ClCompile Include="window.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="graphics\font.cpp">
+      <Filter>Source Files\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="graphics\texture.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="display\renderer.cpp">
+      <Filter>Source Files\display</Filter>
+    </ClCompile>
+    <ClCompile Include="display\window.cpp">
+      <Filter>Source Files\display</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\music.cpp">
+      <Filter>Source Files\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\sound.cpp">
+      <Filter>Source Files\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\asset.cpp">
+      <Filter>Source Files\asset</Filter>
+    </ClCompile>
+    <ClCompile Include="doodle.cpp">
+      <Filter>Source Files\z_include</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="asset\asset.inl">
+      <Filter>Header Files\asset</Filter>
+    </None>
+    <None Include="math\geometric.inl">
+      <Filter>Header Files\math</Filter>
+    </None>
+    <None Include="math\numeric.inl">
+      <Filter>Header Files\math</Filter>
+    </None>
+    <None Include="math\trigonometric.inl">
+      <Filter>Header Files\math</Filter>
+    </None>
+    <None Include="math\vector2.inl">
+      <Filter>Header Files\math</Filter>
+    </None>
   </ItemGroup>
 </Project>

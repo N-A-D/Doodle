@@ -2,8 +2,7 @@
 
 #include <SDL2/SDL.h>
 #include <string>
-#include "clock.h"
-#include "sdl_resource.h"
+#include "../internal/sdl_resource.h"
 
 namespace doodle {
 
