@@ -26,7 +26,7 @@ SDL_Color doodle::Renderer::draw_color() const noexcept
 	return color;
 }
 
-void doodle::Renderer::draw(const Texture & obj, SDL_Point dst, double angle, SDL_Rect clip, SDL_Point center, SDL_RendererFlip flip) noexcept
+void doodle::Renderer::draw(const Texture & obj, const SDL_Point& dst, double angle, const SDL_Rect& clip, const SDL_Point& center, SDL_RendererFlip flip) noexcept
 {
 	SDL_Rect quad = { dst.x, dst.y, clip.w, clip.h };
 	SDL_RenderCopyEx(*this, obj, &clip, &quad, angle, &center, flip);

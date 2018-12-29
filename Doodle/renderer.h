@@ -24,8 +24,8 @@ namespace doodle {
 		SDL_Color draw_color() const noexcept;
 
 		// Draw a renderable object onto the renderer's parent window.
-		void draw(const Texture& obj, SDL_Point dst, double angle,
-			SDL_Rect clip, SDL_Point center, SDL_RendererFlip flip) noexcept;
+		void draw(const Texture& obj, const SDL_Point& dst, double angle,
+			const SDL_Rect& clip, const SDL_Point& center, SDL_RendererFlip flip) noexcept;
 
 		// Draw a renderable object onto the renderer's parent window.
 		void draw(const Texture& obj, const SDL_Rect& src, const SDL_Rect& dst) noexcept;
