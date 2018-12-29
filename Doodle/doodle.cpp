@@ -25,7 +25,8 @@ void doodle::init()
 		throw std::runtime_error("ERROR::SDL::SUBSYSTEM::AUDIO::INITIALIZATION_FAILED - " + std::string(SDL_GetError()));
 
 	flags = MIX_INIT_MP3 | MIX_INIT_OGG | MIX_INIT_FLAC;
-	if (!(Mix_Init(flags) < 0))
+	auto initted = Mix_Init(flags);
+	if ((initted&flags) != flags)
 		throw std::runtime_error("ERROR::SDL_MIXER::INITIALIZATION_FAILED - " + std::string(Mix_GetError()));
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
 		throw std::runtime_error("ERROR::SDL_MIXER::MIXER::INITIALIZATION_FAILED - " + std::string(Mix_GetError()));
