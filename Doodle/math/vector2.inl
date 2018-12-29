@@ -5,7 +5,7 @@ namespace doodle {
 	{
 		x += other.x;
 		y += other.y;
-		return this;
+		return *this;
 	}
 
 	template<class T>
@@ -13,7 +13,7 @@ namespace doodle {
 	{
 		x -= other.x;
 		y -= other.y;
-		return this;
+		return *this;
 	}
 
 	template<class T>
@@ -21,7 +21,7 @@ namespace doodle {
 	{
 		x *= scale;
 		y *= scale;
-		return this;
+		return *this;
 	}
 
 	template<class T>
@@ -29,7 +29,7 @@ namespace doodle {
 	{
 		x /= scale;
 		y /= scale;
-		return this;
+		return *this;
 	}
 
 	template<class T>
