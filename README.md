@@ -1,5 +1,5 @@
 # Doodle
-2D game library using SDL2
+C++14 wrapper classes to make using SDL2 easier.
 
 # Library overview:
 
