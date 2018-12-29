@@ -1,9 +1,9 @@
-#include "texture.h"
-#include <SDL2/SDL_image.h>
-#include <stdexcept>
 #include <string>
 #include "font.h"
-#include "renderer.h"
+#include "texture.h"
+#include <stdexcept>
+#include <SDL2/SDL_image.h>
+#include "../display/renderer.h"
 
 doodle::Texture::Texture(SDL_Texture * texture) noexcept
 	: SDLResource(texture, [](SDL_Texture* texture) { SDL_DestroyTexture(texture); })

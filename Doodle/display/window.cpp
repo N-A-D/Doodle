@@ -1,8 +1,7 @@
 #include "window.h"
-#include "input.h"
 #include <string>
 #include <cassert>
-#include <stdexcept>
+#include "../system/input.h"
 
 doodle::Window::Window(SDL_Window * window) noexcept
 	: should_close(false), SDLResource(window, [](SDL_Window* window) { SDL_DestroyWindow(window); })
