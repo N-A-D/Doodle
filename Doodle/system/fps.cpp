@@ -12,24 +12,24 @@ doodle::FrameCounter::FrameCounter(std::size_t samples)
 {
 }
 
-double doodle::FrameCounter::min_frame_rate() noexcept
+double doodle::FrameCounter::min_frame_rate() const noexcept
 {
 	calc_frame_rate();
 	return std::isinf(min_fps) ? 0 : std::round(min_fps);
 }
 
-double doodle::FrameCounter::avg_frame_rate() noexcept
+double doodle::FrameCounter::avg_frame_rate() const noexcept
 {
 	return calc_frame_rate();
 }
 
-double doodle::FrameCounter::max_frame_rate() noexcept
+double doodle::FrameCounter::max_frame_rate() const noexcept
 {
 	calc_frame_rate();
 	return std::isinf(max_fps) ? 0 : std::round(max_fps);
 }
 
-double doodle::FrameCounter::calc_frame_rate() noexcept
+double doodle::FrameCounter::calc_frame_rate() const noexcept
 {
 	auto idx = index++ % samples;
 	auto cur_frame_time = SDL_GetTicks();
