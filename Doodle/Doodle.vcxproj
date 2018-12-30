@@ -75,7 +75,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty/libraries/SDL2/run/Win32;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)3rdParty/libraries/run/SDL2/Win32;$(SolutionDir)3rdParty/libraries/run/SDL2_image/Win32;$(SolutionDir)3rdParty/libraries/run/SDL2_mixer/Win32;$(SolutionDir)3rdParty/libraries/run/SDL2_ttf/Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
@@ -83,7 +83,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty/SDL2/libraries/run/Win64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)3rdParty/libraries/run/SDL2/Win64;$(SolutionDir)3rdParty/libraries/run/SDL2_image/Win64;$(SolutionDir)3rdParty/libraries/run/SDL2_mixer/Win64;$(SolutionDir)3rdParty/libraries/run/SDL2_ttf/Win64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -168,6 +168,7 @@
     <ClInclude Include="math\vector2.h" />
     <ClInclude Include="system.h" />
     <ClInclude Include="system\clock.h" />
+    <ClInclude Include="system\fps.h" />
     <ClInclude Include="system\input.h" />
     <ClInclude Include="system\keyboard.h" />
     <ClInclude Include="system\mouse.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="graphics\font.cpp" />
     <ClCompile Include="graphics\texture.cpp" />
     <ClCompile Include="system\clock.cpp" />
+    <ClCompile Include="system\fps.cpp" />
     <ClCompile Include="system\input.cpp" />
   </ItemGroup>
   <ItemGroup>

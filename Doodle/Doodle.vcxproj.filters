@@ -132,6 +132,9 @@
     <ClInclude Include="asset.h">
       <Filter>Header Files\z_include</Filter>
     </ClInclude>
+    <ClInclude Include="system\fps.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="system\clock.cpp">
@@ -163,6 +166,9 @@
     </ClCompile>
     <ClCompile Include="doodle.cpp">
       <Filter>Source Files\z_include</Filter>
+    </ClCompile>
+    <ClCompile Include="system\fps.cpp">
+      <Filter>Source Files\system</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
