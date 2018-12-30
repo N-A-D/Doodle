@@ -10,7 +10,7 @@ std::uint32_t doodle::Clock::elapsed() const noexcept
 	return SDL_GetTicks() - cur;
 }
 
-std::uint32_t doodle::Clock::ticks() noexcept
+std::uint32_t doodle::Clock::delta_time() noexcept
 {
 	auto ret = elapsed();
 	start();

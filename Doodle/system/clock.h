@@ -16,7 +16,7 @@ namespace doodle {
 		std::uint32_t elapsed() const noexcept;
 
 		// Returns time in between calls.
-		std::uint32_t ticks() noexcept;
+		std::uint32_t delta_time() noexcept;
 
 	private:
 		std::uint32_t cur = SDL_GetTicks();
