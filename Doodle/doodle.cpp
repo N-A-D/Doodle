@@ -11,7 +11,7 @@ void doodle::init()
 	// Initialize SDL2 and its subsystems individually
 
 	// Initialize SDL
-	if (SDL_Init(0))
+	if (SDL_Init(0) != 0)
 	{
 		std::cerr << "SDL2: Failed to initialize!" << std::endl;
 		std::cerr <<  "SDL2: " + std::string(SDL_GetError()) << std::endl;
@@ -19,7 +19,7 @@ void doodle::init()
 	else 
 	{
 		// Initialize SDL_image
-		if (SDL_InitSubSystem(SDL_INIT_VIDEO) < 0)
+		if (SDL_InitSubSystem(SDL_INIT_VIDEO) != 0)
 		{
 			std::cerr << "SDL2: Failed to initialize video subsystem!" << std::endl;
 			std::cerr << "SDL2: " + std::string(SDL_GetError()) << std::endl;
@@ -41,7 +41,7 @@ void doodle::init()
 			}
 		}
 		// Initialize SDL_mixer
-		if (SDL_InitSubSystem(SDL_INIT_AUDIO) < 0)
+		if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 		{
 			std::cerr << "SDL2: Failed to initialize audio subsystem!" << std::endl;
 			std::cerr << "SDL2: " + std::string(SDL_GetError()) << std::endl;
@@ -49,7 +49,7 @@ void doodle::init()
 		else
 		{
 			// Initialize SDL_mixer
-			if (SDL_InitSubSystem(SDL_INIT_AUDIO) < 0)
+			if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 			{
 				std::cerr << "SDL2: Failed to initialize audio subsystem!" << std::endl;
 				std::cerr << "SDL2: " + std::string(SDL_GetError()) << std::endl;
