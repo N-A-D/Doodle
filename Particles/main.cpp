@@ -8,7 +8,7 @@
 #include <random>
 #include <sstream>
 
-const int NUM_RECTS = 200;
+const int NUM_PARTICLES = 200;
 
 void create_particles(rift::EntityManager& entities, int num_entities) noexcept;
 
@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
 	systems.add<MovementSystem>();
 	systems.add<RenderingSystem>(renderer);
 
-	create_particles(entities, NUM_RECTS);
+	create_particles(entities, NUM_PARTICLES);
 
 	while (window.poll_events()) {
 		if (handler.is_key_pressed(doodle::Keyboard::KEY_ESCAPE))

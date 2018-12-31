@@ -24,7 +24,7 @@ struct MovementSystem : public rift::System<MovementSystem> {
 				body.pos.y = 0;
 				body.dir.y *= -1;
 			}
-			if (body.pos.y > SCR_HEIGHT - body.h) {
+			else if (body.pos.y > SCR_HEIGHT - body.h) {
 				body.pos.y = static_cast<float>(SCR_HEIGHT - body.h);
 				body.dir.y *= -1;
 			}
