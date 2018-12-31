@@ -9,7 +9,7 @@ struct Body : public rift::Component<Body>
 	Body() = default;
 	Body(int width, int height, doodle::Vector2f pos, doodle::Vector2f dir)
 		: w(width), h(height), pos(pos), dir(dir) {}
-	int w, h;
+	int w = 0, h = 0;
 	doodle::Vector2f pos;
 	doodle::Vector2f dir;
 };
