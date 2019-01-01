@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
 		                                          { SCR_WIDTH, SCR_HEIGHT },
 		                                          SDL_WINDOW_SHOWN
 	                                             );
-	doodle::Renderer renderer = doodle::create_renderer(window, SDL_RENDERER_ACCELERATED);
+	doodle::Renderer renderer = doodle::create_renderer(window, SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC);
 	doodle::InputHandler handler;
 	doodle::Clock clock;
 	doodle::FrameCounter fc(100'000);
