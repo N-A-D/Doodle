@@ -20,6 +20,6 @@ Mix_Music* doodle::load_music(const std::string & filename)
 {
 	auto mix_music = Mix_LoadMUS(filename.c_str());
 	if (!mix_music)
-		throw std::runtime_error("Could not create doodle::Music " + std::string(Mix_GetError()));
+		throw std::runtime_error("Failed to created Mix_Music " + std::string(Mix_GetError()));
 	return mix_music;
 }

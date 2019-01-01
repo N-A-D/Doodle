@@ -36,7 +36,7 @@ Mix_Chunk* doodle::load_sound(const std::string & filename)
 {
 	auto mix_chunk = Mix_LoadWAV(filename.c_str());
 	if (!mix_chunk)
-		throw std::runtime_error("Could not create doodle::Sound " + std::string(Mix_GetError()));
+		throw std::runtime_error("Failed to create Mix_Chunk " + std::string(Mix_GetError()));
 	return mix_chunk;
 }
 
@@ -44,7 +44,7 @@ Mix_Chunk* doodle::load_sound(const std::string & filename, int volume)
 {
 	auto mix_chunk = Mix_LoadWAV(filename.c_str());
 	if (!mix_chunk)
-		throw std::runtime_error("Could not create doodle::Sound " + std::string(Mix_GetError()));
+		throw std::runtime_error("Failed to create Mix_Chunk " + std::string(Mix_GetError()));
 	Mix_VolumeChunk(mix_chunk, volume);
 	return mix_chunk;
 }

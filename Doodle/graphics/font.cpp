@@ -36,6 +36,6 @@ TTF_Font* doodle::load_font(const std::string & filename, int size)
 {
 	auto ttf_font = TTF_OpenFont(filename.c_str(), size);
 	if (!ttf_font)
-		throw std::runtime_error("Could not create doodle::Font " + std::string(TTF_GetError()));
+		throw std::runtime_error("Failed to create TTF_Font " + std::string(TTF_GetError()));
 	return ttf_font;
 }

@@ -82,6 +82,6 @@ std::pair<SDL_Renderer*, std::uint32_t> doodle::create_renderer(Window & window,
 {
 	auto sdl_renderer = SDL_CreateRenderer(window, -1, flags);
 	if (!sdl_renderer)
-		throw std::runtime_error("Could not create doodle::Renderer " + std::string(SDL_GetError()));
+		throw std::runtime_error("Failed to create SDL_Renderer " + std::string(SDL_GetError()));
 	return std::make_pair(sdl_renderer, window.id());
 }

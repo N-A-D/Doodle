@@ -76,7 +76,7 @@ SDL_Window* doodle::create_window(const std::string & title, SDL_Point pos, SDL_
 {
 	auto sdl_window = SDL_CreateWindow(title.c_str(), pos.x, pos.y, dim.x, dim.y, flags);
 	if (!sdl_window)
-		throw std::runtime_error("Could not create doodle::Window " + std::string(SDL_GetError()));
+		throw std::runtime_error("Failed to create SDL_Window " + std::string(SDL_GetError()));
 	return sdl_window;
 }
 
