@@ -70,7 +70,7 @@ namespace doodle {
 		template <class Asset>
 		Asset& get(std::string name) noexcept;
 
-		// Checks if the exists an asset with the given name.
+		// Checks if there exists an asset with the given name.
 		template <class Asset>
 		bool has(std::string name) const noexcept;
 

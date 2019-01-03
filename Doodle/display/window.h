@@ -25,7 +25,7 @@ namespace doodle {
 		// Set the window's icon.
 		void set_icon(SDL_Surface* icon) noexcept;
 
-		// Returns the window's.
+		// Returns the window's id.
 		std::uint32_t id() const noexcept;
 
 		// Instructs the window to close.
