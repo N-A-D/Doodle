@@ -188,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="asset\asset.inl" />
+    <None Include="display\renderer.inl" />
     <None Include="math\geometric.inl" />
     <None Include="math\numeric.inl" />
     <None Include="math\trigonometric.inl" />

@@ -187,5 +187,8 @@
     <None Include="math\vector2.inl">
       <Filter>Header Files\math</Filter>
     </None>
+    <None Include="display\renderer.inl">
+      <Filter>Header Files\display</Filter>
+    </None>
   </ItemGroup>
 </Project>
