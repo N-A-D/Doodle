@@ -4,7 +4,6 @@
 
 doodle::FrameCounter::FrameCounter(std::size_t samples)
 	: frame_times(samples, 0)
-	, last_frame_time(SDL_GetTicks())
 	, samples(samples)
 	, index(0)
 	, min_fps(std::numeric_limits<double>::infinity())
@@ -12,29 +11,26 @@ doodle::FrameCounter::FrameCounter(std::size_t samples)
 {
 }
 
-double doodle::FrameCounter::min_frame_rate() const noexcept
+double doodle::FrameCounter::min_frame_rate() noexcept
 {
-	calc_frame_rate();
-	return std::isinf(min_fps) ? 0 : std::round(min_fps);
+	return std::isinf(min_fps) ? 0 : min_fps;
 }
 
-double doodle::FrameCounter::avg_frame_rate() const noexcept
+double doodle::FrameCounter::avg_frame_rate() noexcept
 {
 	return calc_frame_rate();
 }
 
-double doodle::FrameCounter::max_frame_rate() const noexcept
+double doodle::FrameCounter::max_frame_rate() noexcept
 {
-	calc_frame_rate();
-	return std::isinf(max_fps) ? 0 : std::round(max_fps);
+	return std::isinf(max_fps) ? 0 : max_fps;
 }
 
-double doodle::FrameCounter::calc_frame_rate() const noexcept
+double doodle::FrameCounter::calc_frame_rate() noexcept
 {
 	auto idx = index++ % samples;
-	auto cur_frame_time = SDL_GetTicks();
-	frame_times[idx] = cur_frame_time - last_frame_time;
-	last_frame_time = cur_frame_time;
+	frame_times[idx] = clock.elapsed();
+	clock.start();
 	
 	auto count = index < samples ? index : samples;
 	double avg_ft = 0.0;
@@ -43,8 +39,8 @@ double doodle::FrameCounter::calc_frame_rate() const noexcept
 		avg_ft += frame_times[i];
 	}
 	avg_ft /= count;
-	double fps = 1000 / avg_ft;
+	double fps = std::round(1000 / avg_ft);
 	if (fps > max_fps) max_fps = fps;
 	if (fps < min_fps) min_fps = fps;
-	return fps > 20000 ? 0 : std::round(fps);
+	return fps > 20000 ? 0 : fps;
 }
