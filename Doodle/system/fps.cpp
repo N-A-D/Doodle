@@ -29,9 +29,7 @@ double doodle::FrameCounter::max_frame_rate() noexcept
 double doodle::FrameCounter::calc_frame_rate() noexcept
 {
 	auto idx = index++ % samples;
-	frame_times[idx] = clock.elapsed();
-	clock.start();
-	
+	frame_times[idx] = clock.delta_time();
 	auto count = index < samples ? index : samples;
 	double avg_ft = 0.0;
 	for (std::size_t i = 0; i < count; i++)
