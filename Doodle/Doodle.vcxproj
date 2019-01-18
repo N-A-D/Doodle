@@ -70,20 +70,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty\libraries\dev\SDL2\Win32;$(SolutionDir)3rdParty\libraries\dev\SDL2_image\Win32;$(SolutionDir)3rdParty\libraries\dev\SDL2_mixer\Win32;$(SolutionDir)3rdParty\libraries\dev\SDL2_ttf\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Doodle\3rdParty\includes\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Doodle\3rdParty\libraries\dev\SDL2\Win32;$(SolutionDir)Doodle\3rdParty\libraries\dev\SDL2_image\Win32;$(SolutionDir)Doodle\3rdParty\libraries\dev\SDL2_mixer\Win32;$(SolutionDir)Doodle\3rdParty\libraries\dev\SDL2_ttf\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty/libraries/run/SDL2/Win32;$(SolutionDir)3rdParty/libraries/run/SDL2_image/Win32;$(SolutionDir)3rdParty/libraries/run/SDL2_mixer/Win32;$(SolutionDir)3rdParty/libraries/run/SDL2_ttf/Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Doodle\3rdParty\includes\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Doodle\3rdParty/libraries/run/SDL2/Win32;$(SolutionDir)Doodle\3rdParty/libraries/run/SDL2_image/Win32;$(SolutionDir)Doodle\3rdParty/libraries/run/SDL2_mixer/Win32;$(SolutionDir)Doodle\3rdParty/libraries/run/SDL2_ttf/Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty\libraries\dev\SDL2_ttf\Win64;$(SolutionDir)3rdParty\libraries\dev\SDL2_mixer\Win64;$(SolutionDir)3rdParty\libraries\dev\SDL2_image\Win64;$(SolutionDir)3rdParty\libraries\dev\SDL2\Win64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Doodle\3rdParty\includes\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Doodle\3rdParty\libraries\dev\SDL2_ttf\Win64;$(SolutionDir)Doodle\3rdParty\libraries\dev\SDL2_mixer\Win64;$(SolutionDir)Doodle\3rdParty\libraries\dev\SDL2_image\Win64;$(SolutionDir)Doodle\3rdParty\libraries\dev\SDL2\Win64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)3rdParty\includes\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)3rdParty/libraries/run/SDL2/Win64;$(SolutionDir)3rdParty/libraries/run/SDL2_image/Win64;$(SolutionDir)3rdParty/libraries/run/SDL2_mixer/Win64;$(SolutionDir)3rdParty/libraries/run/SDL2_ttf/Win64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Doodle\3rdParty\includes\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Doodle\3rdParty/libraries/run/SDL2/Win64;$(SolutionDir)Doodle\3rdParty/libraries/run/SDL2_image/Win64;$(SolutionDir)Doodle\3rdParty/libraries/run/SDL2_mixer/Win64;$(SolutionDir)Doodle\3rdParty/libraries/run/SDL2_ttf/Win64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
