@@ -28,9 +28,6 @@
     <Filter Include="Header Files\internal">
       <UniqueIdentifier>{80092a68-c4ae-49f9-b470-8f1b094cadd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\math">
-      <UniqueIdentifier>{b3249620-643d-4d95-8379-6d2cc45a7929}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\system">
       <UniqueIdentifier>{29d72aac-cc0f-4043-b388-9eac330c166f}</UniqueIdentifier>
     </Filter>
@@ -81,9 +78,6 @@
     <ClInclude Include="graphics.h">
       <Filter>Header Files\z_include</Filter>
     </ClInclude>
-    <ClInclude Include="math.h">
-      <Filter>Header Files\z_include</Filter>
-    </ClInclude>
     <ClInclude Include="system.h">
       <Filter>Header Files\z_include</Filter>
     </ClInclude>
@@ -113,21 +107,6 @@
     </ClInclude>
     <ClInclude Include="internal\sdl_resource.h">
       <Filter>Header Files\internal</Filter>
-    </ClInclude>
-    <ClInclude Include="math\geometric.h">
-      <Filter>Header Files\math</Filter>
-    </ClInclude>
-    <ClInclude Include="math\numeric.h">
-      <Filter>Header Files\math</Filter>
-    </ClInclude>
-    <ClInclude Include="math\random.h">
-      <Filter>Header Files\math</Filter>
-    </ClInclude>
-    <ClInclude Include="math\trigonometric.h">
-      <Filter>Header Files\math</Filter>
-    </ClInclude>
-    <ClInclude Include="math\vector2.h">
-      <Filter>Header Files\math</Filter>
     </ClInclude>
     <ClInclude Include="asset.h">
       <Filter>Header Files\z_include</Filter>
@@ -174,18 +153,6 @@
   <ItemGroup>
     <None Include="asset\asset.inl">
       <Filter>Header Files\asset</Filter>
-    </None>
-    <None Include="math\geometric.inl">
-      <Filter>Header Files\math</Filter>
-    </None>
-    <None Include="math\numeric.inl">
-      <Filter>Header Files\math</Filter>
-    </None>
-    <None Include="math\trigonometric.inl">
-      <Filter>Header Files\math</Filter>
-    </None>
-    <None Include="math\vector2.inl">
-      <Filter>Header Files\math</Filter>
     </None>
     <None Include="display\renderer.inl">
       <Filter>Header Files\display</Filter>

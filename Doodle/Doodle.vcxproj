@@ -160,12 +160,6 @@
     <ClInclude Include="graphics\texture.h" />
     <ClInclude Include="internal\noncopyable.h" />
     <ClInclude Include="internal\sdl_resource.h" />
-    <ClInclude Include="math.h" />
-    <ClInclude Include="math\geometric.h" />
-    <ClInclude Include="math\numeric.h" />
-    <ClInclude Include="math\random.h" />
-    <ClInclude Include="math\trigonometric.h" />
-    <ClInclude Include="math\vector2.h" />
     <ClInclude Include="system.h" />
     <ClInclude Include="system\clock.h" />
     <ClInclude Include="system\fps.h" />
@@ -189,10 +183,6 @@
   <ItemGroup>
     <None Include="asset\asset.inl" />
     <None Include="display\renderer.inl" />
-    <None Include="math\geometric.inl" />
-    <None Include="math\numeric.inl" />
-    <None Include="math\trigonometric.inl" />
-    <None Include="math\vector2.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
