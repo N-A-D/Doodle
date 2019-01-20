@@ -13,8 +13,5 @@ TODO
 ## Graphics
 TODO
 
-## Math
-TODO
-
 ## System
 TODO
