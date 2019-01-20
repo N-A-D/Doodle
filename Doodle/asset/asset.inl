@@ -45,7 +45,7 @@ namespace doodle {
 	template<class Asset>
 	inline bool AssetManager::contains_table_for() const noexcept
 	{
-		static_assert(std::is_base_of_v<BasicAsset, Asset>, "The asset type does not inherit from doodle::Asset!");
+		static_assert(std::is_base_of_v<BaseAsset, Asset>, "The asset type does not inherit from doodle::Asset!");
 		return db.find(Asset::family()) != db.end();
 	}
 
