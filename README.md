@@ -1,17 +1,48 @@
 # Doodle
-C++14 wrapper class library to compliment the use of SDL2.
+Complimentary class library for SDL2 written in C+++14.
+WIP... Some functions are still not mapped and there are plans to wrap other parts of the SDL2 library.
 
 # Library overview:
-This library is intended to reduce the amount of boilerplate code needed in order to use core SDL2 features (textures, renderers, windows, fonts, music, and sounds). 
+The aim of the library is to provide a simple set of classes to allow easier use of SDL2 functionality. 
+
+Each of the main components, with the exception of the *System* component, provide RAII types for handling SDL2 resources. Moreover, each class bundles together the SDL2 functions that manipulate those resources. Lastly, each type is capable of conversion to the SDL2 resource type that it wraps so as to allow for interoperation between other SDL2 functions that are currently not wrapped. 
+
+## Initialization/Shutdown
+The library includes facilities to start up and shutdown SDL2. These functions are aptly named: `doodle::init` and `doodle::close`.
+Initialization is in steps for each SDL2 subsystem. If in the event an error occurs, the output of that error is printed to the standard error stream. 
+
+Upon initialization, the following image types are supported:
+1. PNG
+1. JPG
+1. TIF
+
+Upon initialization, the following audio file types are supported:
+1. MP3
+1. OGG
+1. FLAC
+1. MOD
+
+Additionally, the library only initializes 8 sound channels for 8 simultaneous sounds playing. 
 
 ## Audio
-TODO
+The SDL2 types: `Mix_Chunk` and `Mix_Music` are wrapped in classes `doodle::Sound` and `doodle::Music` respectively.
 
-## Display
-TODO
+## Display 
+The SDL2 types: `SDL_Renderer` and `SDL_Window` are wrapped in classes `doodle::Renderer` and `doodle::Window` respectively.
 
 ## Graphics
-TODO
+The SDL2 types: `SDL_Texture` and `TTF_Font` are wrapped in classes `doodle::Texture` and `doodle::Font` respectively.
 
 ## System
-TODO
+This component contains the following classes:  
+1. `doodle::Clock`. Used for calculating time/calculating delta time.
+1. `doodle::FrameCounter`. Used primarily for counting min/avg/max frame rate
+1. `doodle::InputHandler`. Used for maintaining the state of the keyboard/mouse. 
+
+This component also contains the following enumerations used for input event processing:
+1. `doodle::Keyboard`. 282 distinct keys used in SDL2.
+1. `doodle::Mouse`. 3 buttons that map to the left, middle, and right respectively.
+
+## Asset
+This component is a utility for making management of a large number of assets such as audio/textures/fonts easier. 
+The `doodle::AssetManager` can be used to name different assets that can later be referred to in different parts of a program.
