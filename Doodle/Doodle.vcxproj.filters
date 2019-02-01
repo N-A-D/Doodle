@@ -46,12 +46,6 @@
     <Filter Include="Source Files\asset">
       <UniqueIdentifier>{e82de640-2029-4c82-a62f-345ac7d713ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\z_include">
-      <UniqueIdentifier>{6126c8fc-0390-4b5b-aa3d-b87f2af35380}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\z_include">
-      <UniqueIdentifier>{bdf0377a-6181-498a-bda6-8c76759ef4b0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="system\clock.h">
@@ -65,21 +59,6 @@
     </ClInclude>
     <ClInclude Include="system\mouse.h">
       <Filter>Header Files\system</Filter>
-    </ClInclude>
-    <ClInclude Include="audio.h">
-      <Filter>Header Files\z_include</Filter>
-    </ClInclude>
-    <ClInclude Include="display.h">
-      <Filter>Header Files\z_include</Filter>
-    </ClInclude>
-    <ClInclude Include="doodle.h">
-      <Filter>Header Files\z_include</Filter>
-    </ClInclude>
-    <ClInclude Include="graphics.h">
-      <Filter>Header Files\z_include</Filter>
-    </ClInclude>
-    <ClInclude Include="system.h">
-      <Filter>Header Files\z_include</Filter>
     </ClInclude>
     <ClInclude Include="asset\asset.h">
       <Filter>Header Files\asset</Filter>
@@ -108,11 +87,26 @@
     <ClInclude Include="internal\sdl_resource.h">
       <Filter>Header Files\internal</Filter>
     </ClInclude>
-    <ClInclude Include="asset.h">
-      <Filter>Header Files\z_include</Filter>
-    </ClInclude>
     <ClInclude Include="system\fps.h">
       <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="asset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="display.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="doodle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -143,11 +137,11 @@
     <ClCompile Include="asset\asset.cpp">
       <Filter>Source Files\asset</Filter>
     </ClCompile>
-    <ClCompile Include="doodle.cpp">
-      <Filter>Source Files\z_include</Filter>
-    </ClCompile>
     <ClCompile Include="system\fps.cpp">
       <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="doodle.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
