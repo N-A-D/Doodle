@@ -9,7 +9,7 @@ Each of the main components, with the exception of the *System* component, provi
 
 ## Initialization/Shutdown
 The library includes facilities to start up and shutdown SDL2. These functions are aptly named: `doodle::init` and `doodle::close`.
-Initialization is in steps for each SDL2 subsystem. If in the event an error occurs, the output of that error is printed to the standard error stream. 
+Initialization is in steps for each SDL2 subsystem. In the event of an error, the output of that error is printed to the standard error stream. 
 
 Upon initialization, the following image types are supported:
 1. PNG
@@ -25,13 +25,20 @@ Upon initialization, the following audio file types are supported:
 Additionally, the library only initializes 8 sound channels for 8 simultaneous sounds playing. 
 
 ## Audio
-The SDL2 types: `Mix_Chunk` and `Mix_Music` are wrapped in classes `doodle::Sound` and `doodle::Music` respectively.
+The SDL2 types: `Mix_Chunk` and `Mix_Music` are wrapped in classes `doodle::Sound` and `doodle::Music` respectively. Sounds are created using the `doodle::load_sound` function. Music instances are created using the `doodle::load_music` function.
 
 ## Display 
-The SDL2 types: `SDL_Renderer` and `SDL_Window` are wrapped in classes `doodle::Renderer` and `doodle::Window` respectively.
+The SDL2 types: `SDL_Renderer` and `SDL_Window` are wrapped in classes `doodle::Renderer` and `doodle::Window` respectively. Renderers are created using the `doodle::create_renderer` function. Windows are created using the `doodle::create_window` function.
 
 ## Graphics
-The SDL2 types: `SDL_Texture` and `TTF_Font` are wrapped in classes `doodle::Texture` and `doodle::Font` respectively.
+The SDL2 types: `SDL_Texture` and `TTF_Font` are wrapped in classes `doodle::Texture` and `doodle::Font` respectively. 
+There are four functions that allow for creating textures:   
+1. `doodle::load_image`. Used for loading textures from image files. 
+1. `doodle::load_solid_text`. Used for loading standard rendered text.
+1. `doodle::load_shaded_text`. Used for loading rendered text with a shadow.
+1. `doodle::load_blended_text`. Used for loading rendered text that is blended with its background color.
+
+Fonts are created using the `doodle::load_font` function.
 
 ## System
 This component contains the following classes:  
